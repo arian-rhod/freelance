@@ -109,6 +109,7 @@
       color: var(--ink);
       font-weight: 600;
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav a:hover {
@@ -245,6 +246,11 @@
       font-size: 0.95rem;
     }
 
+    .hero-card li span:last-child {
+      text-align: right;
+      word-break: break-word;
+    }
+
     section {
       padding: 4rem 0;
     }
@@ -374,13 +380,33 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .hero {
+        padding-top: 3.2rem;
+      }
+
     }
 
     @media (max-width: 620px) {
+      .container {
+        width: min(1120px, 94vw);
+      }
+
       .nav {
         height: auto;
         padding: 0.8rem 0;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 0.65rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .nav .cta {
+        width: 100%;
+        text-align: center;
       }
 
       .services-grid,
@@ -388,8 +414,72 @@
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding: 2.7rem 0 2.2rem;
+        gap: 1.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-card,
+      .panel,
+      .contact-card,
+      .contact-panel,
+      .service,
+      .stat {
+        border-radius: 16px;
+      }
+
+      .hero-card li {
+        font-size: 0.9rem;
+      }
+
+      .cta,
+      .secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
       section {
         padding: 3rem 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(1120px, 95vw);
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      h1 {
+        font-size: clamp(1.65rem, 8.2vw, 2.1rem);
+      }
+
+      .section-title {
+        font-size: clamp(1.3rem, 6vw, 1.55rem);
+      }
+
+      .tag {
+        font-size: 0.8rem;
+      }
+
+      .hero-card {
+        padding: 1.1rem;
+      }
+
+      .contact-card,
+      .contact-panel,
+      .panel {
+        padding: 1.1rem;
       }
     }
   </style>
@@ -521,4 +611,3 @@
   </footer>
 </body>
 </html>
-
