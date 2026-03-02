@@ -384,6 +384,31 @@
       font-size: 0.95rem;
     }
 
+    .floating-actions {
+      display: none;
+    }
+
+    .fab {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(20, 28, 45, 0.25);
+    }
+
+    .fab-call {
+      background: linear-gradient(120deg, var(--accent), #ea8f4f);
+    }
+
+    .fab-wa {
+      background: linear-gradient(120deg, #15a34a, #22c55e);
+    }
+
     @media (max-width: 980px) {
       .hero,
       .about,
@@ -486,6 +511,16 @@
       section {
         padding: 3rem 0;
       }
+
+      .floating-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        z-index: 40;
+      }
     }
 
     @media (max-width: 420px) {
@@ -517,6 +552,12 @@
       .contact-panel,
       .panel {
         padding: 1.1rem;
+      }
+
+      .fab {
+        width: 52px;
+        height: 52px;
+        font-size: 0.92rem;
       }
     }
   </style>
@@ -642,6 +683,11 @@
       </article>
     </section>
   </main>
+
+  <div class="floating-actions">
+    <a class="fab fab-call" href="tel:+919074159479" aria-label="Call now">Call</a>
+    <a class="fab fab-wa" href="https://wa.me/919605755266" aria-label="Chat on WhatsApp">WA</a>
+  </div>
 
   <footer>
     &copy; 2026 Ajayan KG. പെയിന്റിംഗ്, മാർബിൾ വർക്സ്, ഇന്റീരിയർ ഫിനിഷിംഗ് സേവനങ്ങൾ.
