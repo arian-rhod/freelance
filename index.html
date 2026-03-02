@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajayan KG | പെയിന്റിംഗ്, മാർബിൾ വർക്സ് സേവനങ്ങൾ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-soft: #eef2ff;
+      --ink: #1f2430;
+      --muted: #596073;
+      --accent: #d46a1f;
+      --accent-2: #0d9f92;
+      --stroke: #dce3f1;
+      --shadow: 0 18px 45px rgba(25, 38, 66, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans Malayalam", "Manjari", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(13, 159, 146, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(212, 106, 31, 0.16), transparent 40%),
+        var(--bg);
+      line-height: 1.6;
+      letter-spacing: 0.1px;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(246, 247, 251, 0.8);
+      border-bottom: 1px solid rgba(220, 227, 241, 0.8);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .cta {
+      background: linear-gradient(120deg, var(--accent), #ea8f4f);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(212, 106, 31, 0.26);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      border: 1px solid var(--stroke);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 56ch;
+      margin-bottom: 1.6rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .secondary {
+      text-decoration: none;
+      border: 1px solid var(--stroke);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.7rem 1.2rem;
+      font-weight: 700;
+      background: var(--surface);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stat h3 {
+      font-size: 1.4rem;
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(170deg, #1f2430, #2d3650 60%);
+      color: #e9eefc;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      min-height: auto;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: linear-gradient(120deg, rgba(13, 159, 146, 0.65), rgba(212, 106, 31, 0.6));
+      border-radius: 42% 58% 67% 33% / 46% 38% 62% 54%;
+      right: -70px;
+      bottom: -90px;
+      filter: blur(8px);
+    }
+
+    .hero-card h2 {
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(233, 238, 252, 0.2);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 64ch;
+      margin-bottom: 1.6rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .service {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 40px rgba(22, 30, 52, 0.18);
+    }
+
+    .service h3 {
+      margin-bottom: 0.5rem;
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .list li {
+      padding: 0.45rem 0;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 230px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.9rem;
+      background: linear-gradient(to top, rgba(14, 21, 36, 0.85), rgba(14, 21, 36, 0.2), transparent);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: linear-gradient(120deg, var(--accent-2), #2cbfa7);
+      color: #fff;
+      border-radius: 22px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      font-family: "Manjari", "Noto Sans Malayalam", sans-serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .contact-panel {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 1.6rem 0 2rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        height: auto;
+        padding: 0.8rem 0;
+        flex-wrap: wrap;
+      }
+
+      .services-grid,
+      .gallery,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="logo">Ajayan <span>KG</span></div>
+      <a href="#services">സേവനങ്ങൾ</a>
+      <a href="#about">ഞങ്ങളെ കുറിച്ച്</a>
+      <a href="#contact" class="cta">സൈറ്റ് സന്ദർശനം ബുക്ക് ചെയ്യൂ</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div>
+        <div class="tag">വിശ്വാസമുള്ള ഫ്രീലാൻസ് ഹോം ഇംപ്രൂവ്‌മെന്റ് സ്പെഷ്യലിസ്റ്റ്</div>
+        <h1>ഉന്നത നിലവാരത്തിലുള്ള പെയിന്റിംഗ്, മാർബിൾ വർക്ക്</h1>
+        <p>
+          വീടുകൾക്കും ഓഫീസുകൾക്കും കമ്മർഷ്യൽ സ്പേസുകൾക്കും ശുചിത്വമുള്ള പ്രവൃത്തിയും ദീർഘകാലം നീണ്ടുനിൽക്കുന്ന  മെറ്റീരിയലുകളും കൃത്യതയുള്ള ഫിനിഷിംഗും. എസ്റ്റിമേഷൻ മുതൽ ഫൈനൽ ഹാൻഡോവർ വരെ ഒരേയൊരു കോൺടാക്റ്റ്.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="cta">ഫ്രീ എസ്റ്റിമേറ്റ് നേടൂ</a>
+          <a href="#gallery" class="secondary">സമീപകാല പ്രവൃത്തികൾ കാണൂ</a>
+        </div>
+        <div class="stats">
+          <article class="stat">
+            <h3>38+ വർഷം</h3>
+            <p>പ്രായോഗിക അനുഭവം</p>
+          </article>
+          <article class="stat">
+            <h3>250+</h3>
+            <p>പൂർത്തിയാക്കിയ പ്രോജക്റ്റുകൾ</p>
+          </article>
+          <article class="stat">
+            <h3>4.9/5</h3>
+            <p>ക്ലയന്റ് സംതൃപ്തി</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>ഇപ്പോൾ തന്നെ ബന്ധപ്പെടാം</h2>
+        <ul>
+          <li><span>Ajayan KG</span><span>ഉടമ</span></li>
+          <li><span>കോൾ</span><span>9074159479</span></li>
+          <li><span>കോൾ / വാട്‌സ്ആപ്പ്</span><span>9605755266</span></li>
+          </ul>
+      </aside>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">പ്രധാന സേവനങ്ങൾ</h2>
+      <p class="section-subtitle">
+        നിങ്ങളുടെ ബജറ്റിനും സമയപരിധിക്കും അനുയോജ്യമായ എന്റ്-ടു-എന്റ് ഫിനിഷിംഗ് സേവനങ്ങൾ, സുതാര്യമായ നിരക്കും ശുചിത്വമുള്ള സൈറ്റ് മാനേജ്മെന്റുമൊപ്പം.
+      </p>
+      <div class="services-grid">
+        <article class="service">
+          <h3>ഹൗസ് പെയിന്റിംഗ്</h3>
+          <p>പ്രീമിയം പ്രൈമറുകളും സ്മൂത്ത് ഫിനിഷ് കോട്ടുകളും കാലാവസ്ഥ പ്രതിരോധ ഓപ്ഷനുകളും ഉൾപ്പെടുത്തി ഇന്റീരിയർ/എക്സ്റ്റീരിയർ പെയിന്റിംഗ്.</p>
+        </article>
+        <article class="service">
+          <h3>മാർബിൾ & ഗ്രാനൈറ്റ് വർക്സ്</h3>
+          <p>ഫ്‌ളോർ, കൗണ്ടർടോപ്പ്, സ്റ്റെയർകേസ്, വാൾ എന്നിവയ്ക്ക് മാർബിൾ ലേയിംഗ്, എഡ്ജ് ഫിനിഷിംഗ്, പോളിഷിംഗ്, റസ്റ്റോറേഷൻ.</p>
+        </article>
+        <article class="service">
+          <h3>ടെക്സ്ചർ & ആക്സെന്റ് വാളുകൾ</h3>
+          <p>മോഡേൺ ടെക്സ്ചർ ഫിനിഷുകൾ, സ്റ്റെൻസിൽ വർക്ക്, നിങ്ങളുടെ സ്പേസിന് പ്രത്യേകത നൽകുന്ന സ്റ്റേറ്റ്‌മെന്റ് വാൾ ഡിസൈനുകൾ.</p>
+        </article>
+        <article class="service">
+          <h3>വാട്ടർപ്രൂഫ് കോറ്റിംഗുകൾ</h3>
+          <p>ടെറസ്, ബാത്ത്‌റൂം, ഈർപ്പം പിടിക്കുന്ന മതിലുകൾ എന്നിവയ്ക്കുള്ള സംരക്ഷണ കോറ്റിംഗ് പരിഹാരങ്ങൾ, ദൈർഘ്യം കൂട്ടാൻ.</p>
+        </article>
+        <article class="service">
+          <h3>ഫ്‌ളോർ പോളിഷിംഗ്</h3>
+          <p>മാർബിൾ/സ്റ്റോൺ നിലകൾക്ക് ഹൈ-ഗ്ലോസ് മെഷീൻ പോളിഷിംഗ്, പഴയ തിളക്കം തിരിച്ചുകൊടുക്കാനും മങ്ങലുകൾ കുറയ്ക്കാനും.</p>
+        </article>
+        <article class="service">
+          <h3>റിപ്പെയർ & ടച്ച്‌അപ്പുകൾ</h3>
+          <p>ക്രാക്ക് ഫില്ലിംഗ്, റീപെയിന്റ് പാച്ചുകൾ, ഗ്രൗട്ട് റിപ്പെയർ, ഹാൻഡോവർ/സ്പെഷ്യൽ ഇവന്റ് മുമ്പ് വേഗത്തിലുള്ള പരിഹാരങ്ങൾ.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <article class="panel">
+        <h2 class="section-title">എന്തുകൊണ്ട് ക്ലയന്റുകൾ Ajayan KG നെ തിരഞ്ഞെടുക്കുന്നു</h2>
+        <ul class="list">
+          <li>മെറ്റീരിയൽ/ലേബർ വിഭജിച്ച് വ്യക്തമായ എസ്റ്റിമേറ്റ്</li>
+          <li>സമയബന്ധിത പൂർത്തീകരണവും ദിവസേന പ്രോഗ്രസ് അപ്ഡേറ്റും</li>
+          <li>ഓരോ ജോലിദിനത്തിനും ശേഷം ശുചിത്വമുള്ള ക്ലീനപ്പ്</li>
+          <li>ചെറിയ ജോലികൾ മുതൽ മുഴുവൻ പ്രോപ്പർട്ടി പ്രോജക്റ്റുകൾ വരെ പിന്തുണ</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2 class="section-title">പ്രവർത്തന രീതി</h2>
+        <ul class="list">
+          <li>1. സൈറ്റ് സന്ദർശനവും സർഫേസ് അസസ്മെന്റും</li>
+          <li>2. സുതാര്യമായ ക്വോട്ടും ഷെഡ്യൂൾ പ്ലാനിംഗും</li>
+          <li>3. മെറ്റീരിയൽ തിരഞ്ഞെടുക്കലും സാംപിൾ അംഗീകാരവും</li>
+          <li>4. നിർവഹണം, ക്വാളിറ്റി ചെക്ക്, ഫൈനൽ ഹാൻഡോവർ</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="gallery">
+      <h2 class="section-title">സമീപകാല പ്രോജക്റ്റ് ഹൈലൈറ്റുകൾ</h2>
+      <p class="section-subtitle">വീടുകൾ, ഓഫീസുകൾ, റീട്ടെയിൽ സ്പേസുകൾ എന്നിവിടങ്ങളിലെ തിരഞ്ഞെടുത്ത പ്രോജക്റ്റുകളുടെ ചുരുക്കം.</p>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80" alt="ലിവിംഗ് റൂം പെയിന്റിംഗ് പ്രോജക്റ്റ്" />
+          <figcaption class="gallery-caption">ലിവിംഗ് റൂം റീപെയിന്റ്</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=80" alt="മാർബിൾ സ്റ്റെയർകേസ് ഇൻസ്റ്റലേഷൻ" />
+          <figcaption class="gallery-caption">മാർബിൾ സ്റ്റെയർകേസ് ഇൻസ്റ്റലേഷൻ</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=1000&q=80" alt="ഓഫീസ് വാൾ ടെക്സ്ചർ ഫിനിഷ്" />
+          <figcaption class="gallery-caption">ഓഫീസ് വാൾ ടെക്സ്ചർ ഫിനിഷ്</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80" alt="കിച്ചൻ കൗണ്ടർടോപ്പ് പോളിഷിംഗ്" />
+          <figcaption class="gallery-caption">കിച്ചൻ കൗണ്ടർടോപ്പ് പോളിഷിംഗ്</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80" alt="ഇന്റീരിയർ പെയിന്റ് ഫിനിഷ്" />
+          <figcaption class="gallery-caption">ഇന്റീരിയർ പെയിന്റ് ഫിനിഷ്</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="മാർബിൾ ഫ്ലോർ പോളിഷിംഗ്" />
+          <figcaption class="gallery-caption">മാർബിൾ ഫ്ലോർ പോളിഷിംഗ്</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <article class="contact-card">
+        <h3>നിങ്ങളുടെ അടുത്ത സ്പേസ് അപ്ഗ്രേഡ് ഒരുമിച്ച് തുടങ്ങാം</h3>
+        <p>നിങ്ങളുടെ നഗരത്തിലും സമീപ പ്രദേശങ്ങളിലും ഫ്രീലാൻസ് പ്രവൃത്തികൾക്ക് Ajayan KG ലഭ്യമാണ്. പ്രവൃത്തി ദിവസങ്ങളിലും വാരാന്ത്യത്തിലും സൈറ്റ് സന്ദർശനം ലഭ്യമാണ്.</p>
+        <div class="contact-details">
+          <div>കോൾ: 9074159479</div>
+          <div>കോൾ / വാട്‌സ്ആപ്പ്: 9605755266</div>
+          <div>ഇമെയിൽ: ajayankg412@gmail.com</div>
+          
+        </div>
+      </article>
+      <article class="contact-panel">
+        <h3 class="section-title">വേഗത്തിലുള്ള അന്വേഷണത്തിന്</h3>
+        <p class="section-subtitle">ലൊക്കേഷൻ, ഏരിയ സൈസ്, ആവശ്യമായ സേവനം എന്നിവ വിളിച്ച് അറിയിക്കൂ. ഉടൻ മറുപടി ലഭിക്കും.</p>
+        <a href="tel:9074159479">കോൾ ചെയ്യൂ: 9074159479</a>
+        <br />
+        <a href="tel:9605755266">വാട്‌സ്ആപ്പ്/കോൾ: 9605755266</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Ajayan KG. പെയിന്റിംഗ്, മാർബിൾ വർക്സ്, ഇന്റീരിയർ ഫിനിഷിംഗ് സേവനങ്ങൾ.
+  </footer>
+</body>
+</html>
