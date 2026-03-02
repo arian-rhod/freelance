@@ -91,6 +91,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      flex-wrap: nowrap;
     }
 
     .logo {
@@ -391,23 +392,10 @@
         width: min(1120px, 94vw);
       }
 
-      .nav {
-        height: auto;
-        padding: 0.8rem 0;
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: start;
-        gap: 0.65rem;
-      }
-
-      .logo {
-        font-size: 1.2rem;
-      }
-
-      .nav .cta {
-        width: 100%;
-        text-align: center;
-      }
+      .nav { gap: 0.55rem; }
+      .nav a { font-size: 0.92rem; }
+      .logo { font-size: 1.12rem; }
+      .nav .cta { padding: 0.55rem 0.85rem; }
 
       .services-grid,
       .stats {
@@ -440,6 +428,10 @@
       .secondary {
         width: 100%;
         text-align: center;
+      }
+
+      .nav .cta {
+        width: auto;
       }
 
       .hero-actions {
