@@ -69,6 +69,8 @@
         var(--bg);
       line-height: 1.6;
       letter-spacing: 0.1px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     .container {
@@ -392,10 +394,45 @@
         width: min(1120px, 94vw);
       }
 
-      .nav { gap: 0.55rem; }
-      .nav a { font-size: 0.92rem; }
-      .logo { font-size: 1.12rem; }
-      .nav .cta { padding: 0.55rem 0.85rem; }
+      .nav {
+        height: auto;
+        padding: 0.8rem 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+          "logo logo"
+          "services about"
+          "cta cta";
+        row-gap: 0.6rem;
+        column-gap: 0.5rem;
+        align-items: center;
+      }
+
+      .logo {
+        grid-area: logo;
+        justify-self: start;
+      }
+
+      .nav a[href="#services"] {
+        grid-area: services;
+        justify-self: center;
+      }
+
+      .nav a[href="#about"] {
+        grid-area: about;
+        justify-self: center;
+      }
+
+      .nav .cta {
+        grid-area: cta;
+        justify-self: center;
+        width: auto;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        padding: 0.55rem 0.9rem;
+        line-height: 1.25;
+      }
 
       .services-grid,
       .stats {
@@ -428,10 +465,6 @@
       .secondary {
         width: 100%;
         text-align: center;
-      }
-
-      .nav .cta {
-        width: auto;
       }
 
       .hero-actions {
